@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function clearText(string) {
+            return Array.from(string)
+                .filter(symbol => (/[a-zA-Z0-9]/).test(symbol))
+                .map(symbol => {
+                    if ((/[a-zA-Z]/).test(symbol))
+                        return symbol.toLowerCase();
+                    else
+                        return symbol;
+                });
+        }
+
+        function reverseString(array) {
+            const tempArray = array.slice();
+            for (i = 0; i < array.length; i++) {
+                tempArray[i] = array[array.length - 1 - i];
+            }
+            return tempArray;
+        }
+
+        function palindromes(string) {
+            const string1 = clearText(string).join('');
+            console.log(string1);
+            const string2 = reverseString(clearText(string)).join('');
+            console.log(string1);
+            console.log(string2);
+            return clearText(string).join('') == reverseString(clearText(string)).join('');
+        };
+
+
+        console.log(palindromes("r3ace3car"));
+
+    </script>
+
+</body>
+
+</html>
